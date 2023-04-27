@@ -6,6 +6,12 @@ const codegen = {
     "./src/gql/": {
       preset: "client",
     },
+    "./src/resolvers-types.ts": {
+      config: {
+        useIndexSignature: true,
+      },
+      plugins: ["typescript", "typescript-resolvers"],
+    },
   },
 };
 
