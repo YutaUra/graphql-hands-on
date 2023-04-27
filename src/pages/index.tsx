@@ -1,15 +1,18 @@
+import { graphql } from "@/gql";
 import { useQuery } from "urql";
+
+const indexPageQueryDocument = graphql(`
+  query IndexPageQuery {
+    posts {
+      id
+      title
+    }
+  }
+`);
 
 const Page = () => {
   const [{ data }] = useQuery({
-    query: /* GraphQL */ `
-      query {
-        posts {
-          id
-          title
-        }
-      }
-    `,
+    query: indexPageQueryDocument,
   });
   return (
     <main>
